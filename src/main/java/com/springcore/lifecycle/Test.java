@@ -7,12 +7,18 @@ public class Test {
 
 	public static void main(String[] args) {
 		// AbstractApplicationContext is a parent interface ApplicationContext which enables lifecycle destroy() method
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/springcore/lifecycle/lifecycle-config.xml");
-		Samosa s1 = (Samosa) context.getBean("s1");
-		
-		System.out.println(s1);
-		
+		AbstractApplicationContext context = 
+				new ClassPathXmlApplicationContext("com/springcore/lifecycle/lifecycle-config.xml");
 		context.registerShutdownHook();
+		System.out.println("----------------------------------------------------");
+		Samosa s1 = (Samosa) context.getBean("s1");
+		System.out.println(s1);
+		System.out.println("----------------------------------------------------");
+		
+		System.out.println("----------------------------------------------------");
+		Pepsi p1 = (Pepsi) context.getBean("p1");
+		System.out.println(p1);
+		System.out.println("----------------------------------------------------");
 	}
 
 }
